@@ -148,7 +148,7 @@ export class CodeInputComponent implements AfterViewInit, OnInit, OnChanges, OnD
       throw new Error('The index of the focusing input box should be less than the codeLength.');
     }
 
-    this.inputs[index].focus();
+    this.inputs[index].focus({ preventScroll: true });
   }
 
   onClick(e: any): void {
@@ -171,7 +171,7 @@ export class CodeInputComponent implements AfterViewInit, OnInit, OnChanges, OnD
     }
 
     // focusing on the last input if is filled
-    setTimeout(() => last.focus());
+    setTimeout(() => last.focus({ preventScroll: true }));
   }
 
   onInput(e: any, i: number): void {
@@ -208,7 +208,7 @@ export class CodeInputComponent implements AfterViewInit, OnInit, OnChanges, OnD
       return;
     }
 
-    this.inputs[next].focus();
+    this.inputs[next].focus({ preventScroll: true });
   }
 
   onPaste(e: ClipboardEvent, i: number): void {
@@ -275,7 +275,7 @@ export class CodeInputComponent implements AfterViewInit, OnInit, OnChanges, OnD
     }
 
     if (isTargetEmpty || this.isPrevFocusableAfterClearing) {
-      this.inputs[prev].focus();
+      this.inputs[prev].focus({ preventScroll: true });
     }
   }
 
