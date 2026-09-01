@@ -16,6 +16,7 @@ on:
 permissions:
   id-token: write # Required for OIDC authentication
   contents: write # Allows the workflow to read repository contents
+  packages: write # Allows publishing to GitHub Packages
 concurrency:
   group: npm-release
   cancel-in-progress: false
@@ -67,6 +68,19 @@ jobs:
 
       - name: Publish Angular library to npm
         run: NODE_AUTH_TOKEN="" npm publish ./dist/angular-code-input --ignore-scripts --access public
+
+      - name: Configure GitHub Packages registry
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          registry-url: https://npm.pkg.github.com
+          scope: "@fastenhealth"
+          package-manager-cache: false
+
+      - name: Publish Angular library to GitHub Packages
+        run: npm publish ./dist/angular-code-input --ignore-scripts --access public --registry https://npm.pkg.github.com --provenance=false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push commit and tag
         run: |
