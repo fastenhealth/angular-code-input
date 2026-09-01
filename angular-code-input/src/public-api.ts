@@ -1,5 +1,5 @@
 /*
- * Public API Surface of code-input
+ * Public API surface of @fastenhealth/angular-code-input
  */
 
 export * from './lib/code-input.component';

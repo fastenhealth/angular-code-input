@@ -1,3 +1,10 @@
+# Unreleased
+- Clarified original authorship and Fasten Health fork maintenance metadata.
+- Corrected installation imports to use the scoped `@fastenhealth/angular-code-input` package.
+- Replaced the obsolete TSLint configuration with ESLint.
+
+> **Fork history:** The release notes below originated in [AlexMiniApps/angular-code-input](https://github.com/AlexMiniApps/angular-code-input) and are preserved for attribution and historical issue links. The scoped `@fastenhealth/angular-code-input` package is maintained by [Fasten Health](https://github.com/fastenhealth/angular-code-input).
+
 # 2.0.0 (15.06.2023)
 **Breaking changes**:
 - Enabled Ivy in the compiled library

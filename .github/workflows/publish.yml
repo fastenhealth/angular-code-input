@@ -1,9 +1,6 @@
 name: Publish package
 
 on:
-#  push:
-#    tags:
-#      - 'v*'
   workflow_dispatch:
     inputs:
       bump:
@@ -23,7 +20,6 @@ concurrency:
   group: npm-release
   cancel-in-progress: false
 
-# see: https://gist.github.com/jaywcjlove/a178278521a6f72c74525d3f1d9c4bf9
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -62,6 +58,12 @@ jobs:
 
       - name: Build package
         run: npm run build -- --configuration production
+
+      - name: Lint package
+        run: npm run lint
+
+      - name: Test package
+        run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
 
       - name: Publish Angular library to npm
         run: NODE_AUTH_TOKEN="" npm publish ./dist/angular-code-input --ignore-scripts --access public

@@ -5,11 +5,13 @@
 ![](https://badgen.net/badge/icon/typescript?icon=typescript&label&color=99aabb)
 ![](https://img.shields.io/github/license/fastenhealth/angular-code-input?color=00ccbb)
 
-Robust and <b>tested</b> code (number/chars) input component for Angular 7 - 16+ projects.<br />
-Ionic 4 - 7+ is supported, can be used in iOS and Android.<br />
+> **Fork notice:** This project was originally created by [Alexander Dmitrenko](https://github.com/AlexMiniApps). The scoped package and this fork are maintained by [Fasten Health](https://github.com/fastenhealth).
+
+Robust and <b>tested</b> code (number/chars) input component for Angular 16+ projects.<br />
+Ionic applications using Angular 16+ are supported on iOS and Android.<br />
 <b>Clipboard</b> events are supported.
 
-Star it to inspire us to build the best component!
+Star the project if you find it useful!
 
 Preview
 
@@ -19,8 +21,8 @@ Preview
 
 ## Supported platforms
 
-<b>Angular</b> 7 - 16+<br />
-<b>Ionic</b> 4 - 7+<br />
+<b>Angular</b> 16+<br />
+<b>Ionic</b> applications using Angular 16+<br />
 Mobile browsers and WebViews on: <b>Android</b> and <b>iOS</b><br />
 Desktop browsers: <b>Chrome, Firefox, Safari, Edge v.79 +</b><br />
 Other browsers:  <b>Edge v.41 - 44</b> (without code hidden feature)
@@ -29,19 +31,20 @@ Other browsers:  <b>Edge v.41 - 44</b> (without code hidden feature)
 
     $ npm install --save @fastenhealth/angular-code-input
 
-Choose the version corresponding to your Angular version:
+The Fasten Health scoped package supports Angular 16 and newer:
 
-| Angular    | angular-code-input |
-|------------|--------------------|
-| 16+        | 2.x+               |
-| 7-15       | 1.x+               |
+| Angular | `@fastenhealth/angular-code-input` |
+|---------|------------------------------------|
+| 16+     | 2.x                                |
+
+For Angular 7-15 support, refer to the [original upstream package](https://github.com/AlexMiniApps/angular-code-input).
 
 ## Usage
 
 Import `CodeInputModule` in your app module or page module:
 
 ```ts
-import { CodeInputModule } from 'angular-code-input';
+import { CodeInputModule } from '@fastenhealth/angular-code-input';
 
 @NgModule({
   imports: [
@@ -53,7 +56,7 @@ import { CodeInputModule } from 'angular-code-input';
 
 It is possible to configure the component across the app using the root config. In such case the import will look as follows:
 ```ts
-import { CodeInputModule } from 'angular-code-input';
+import { CodeInputModule } from '@fastenhealth/angular-code-input';
 
 @NgModule({
   imports: [
@@ -180,7 +183,7 @@ Inside a page script attach the component:
 ```ts
 ...
 // adding to the imports
-import {CodeInputComponent} from 'angular-code-input';
+import {CodeInputComponent} from '@fastenhealth/angular-code-input';
 ...
 // adding to the page props
 @ViewChild('codeInput') codeInput !: CodeInputComponent;

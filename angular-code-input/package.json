@@ -1,7 +1,7 @@
 {
   "name": "@fastenhealth/angular-code-input",
   "version": "2.1.0",
-  "description": "Code or pin code input for Angular 7 - 16+ / Ionic 4 - 7+ projects",
+  "description": "Code or PIN input component for Angular 16+ projects",
   "keywords": [
     "angular",
     "pincode",
@@ -11,14 +11,26 @@
     "angular-otp",
     "ionic-otp",
     "ionic-code-input",
-    "ionic-pincode"
+    "ionic-pincode",
+    "fastenhealth"
   ],
-  "author": "Alexander Dmitrenko",
+  "author": {
+    "name": "Alexander Dmitrenko",
+    "url": "https://github.com/AlexMiniApps"
+  },
+  "contributors": [
+    {
+      "name": "Fasten Health",
+      "url": "https://github.com/fastenhealth"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fastenhealth/angular-code-input.git"
+    "url": "git+https://github.com/fastenhealth/angular-code-input.git",
+    "directory": "angular-code-input"
   },
+  "homepage": "https://github.com/fastenhealth/angular-code-input#readme",
   "bugs": {
     "url": "https://github.com/fastenhealth/angular-code-input/issues"
   },
