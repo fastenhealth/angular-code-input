@@ -27,7 +27,7 @@ Other browsers:  <b>Edge v.41 - 44</b> (without code hidden feature)
 
 ## Installation
 
-    $ npm install --save angular-code-input
+    $ npm install --save @fastenhealth/angular-code-input
 
 Choose the version corresponding to your Angular version:
 

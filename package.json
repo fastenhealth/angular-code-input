@@ -1,6 +1,7 @@
 {
-  "name": "@fastenhealth/angular-code-input",
-  "version": "1.9.1",
+  "name": "angular-code-input-workspace",
+  "version": "2.0.0",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -8,8 +9,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "publish": "ng build angular-code-input --configuration production && npm publish ./dist/angular-code-input"
+    "e2e": "ng e2e"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,6 @@
   },
   "bugs": {
     "url": "https://github.com/fastenhealth/angular-code-input/issues"
-  },
-  "private": false,
-  "publishConfig": {
-    "provenance": true,
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@angular/animations": "^16.0.2",
@@ -33,6 +27,7 @@
     "@angular/platform-browser": "^16.0.2",
     "@angular/platform-browser-dynamic": "^16.0.2",
     "@angular/router": "^16.0.2",
+    "@fastenhealth/angular-code-input": "^1.9.1",
     "rxjs": "^7.8.1",
     "tslib": "^2.5.2",
     "zone.js": "^0.13.0"

@@ -36,9 +36,9 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: lts/*
+          node-version: 24
           registry-url: https://registry.npmjs.org
-
+          package-manager-cache: false
 
       - name: Configure git user
         run: |
@@ -46,25 +46,30 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Install dependencies
-        run: yarn install
+        run: npm ci
 
-      - name: Bump version (commit + tag)
+      - name: Bump package versions (commit + tag)
         id: bump
         run: |
-          npm version "${{ inputs.bump }}" -m "chore(release): %s [skip ci]"
-          echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
-          echo "tag=v$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+          npm version "${{ inputs.bump }}" --no-git-tag-version
+          version="$(node -p "require('./package.json').version")"
+          npm pkg set "version=$version" --prefix angular-code-input
+          git add package.json package-lock.json angular-code-input/package.json
+          git commit -m "chore(release): $version [skip ci]"
+          git tag -a "v$version" -m "v$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
 
       - name: Build package
-        run: npm run build
+        run: npm run build -- --configuration production
+
+      - name: Publish Angular library to npm
+        run: NODE_AUTH_TOKEN="" npm publish ./dist/angular-code-input --ignore-scripts --access public
 
       - name: Push commit and tag
         run: |
           git push origin HEAD:${{ github.ref_name }}
           git push origin --tags
-
-      - name: Publish to npm
-        run: NODE_AUTH_TOKEN="" npm publish --access public
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
