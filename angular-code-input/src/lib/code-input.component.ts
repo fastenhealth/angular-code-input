@@ -20,7 +20,7 @@ import {
   CodeInputComponentConfigToken,
   defaultComponentConfig
 } from './code-input.component.config';
-import { Subscription } from 'rxjs';
+import type { Subscription } from 'rxjs';
 
 enum InputState {
   ready = 0,

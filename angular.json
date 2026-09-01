@@ -26,7 +26,8 @@
           "options": {
             "main": "angular-code-input/src/test.ts",
             "tsConfig": "angular-code-input/tsconfig.spec.json",
-            "karmaConfig": "angular-code-input/karma.conf.js"
+            "karmaConfig": "angular-code-input/karma.conf.js",
+            "watch": false
           }
         },
         "lint": {
